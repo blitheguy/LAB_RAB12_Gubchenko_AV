@@ -17,49 +17,37 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button button;
-    Context context;
-
+    public Button forward;
+    public EditText name;
+    public EditText lastName;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button = findViewById(R.id.button);
-        context = getApplicationContext();
-        EditText editText = findViewById(R.id.editText);
 
-        editText.addTextChangedListener(new TextWatcher() {
+        forward = (Button) findViewById(R.id.btnActTwo);
+        name = (EditText) findViewById(R.id.name);
+        lastName = (EditText) findViewById(R.id.lastname);
+    }
 
-            public void afterTextChanged(Editable s) {
-            }
 
-            public void beforeTextChanged(CharSequence s, int start,
-                                          int count, int after) {
-            }
+    public void goNewView(View v) {
+        switch (v.getId()) {
+            case R.id.btnActTwo:
+                // Говорим между какими Activity будет происходить связь
+                Intent intent = new Intent(this, MainActivity2.class);
 
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                TextView textView = findViewById(R.id.textView);
-                textView.setText(s);
-            }
-        });
+                // указываем первым параметром ключ, а второе значение
+                // по ключу мы будем получать значение с Intent
+                intent.putExtra("name", name.getText().toString());
+                intent.putExtra("lastname", lastName.getText().toString());
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, MainActivity2.class);
+                // показываем новое Activity
                 startActivity(intent);
-//                EditText editText = findViewById(R.id.editText);
-//
-//                editText.addTextChangedListener(new Text(){
-//                    @Override
-//                    public void setTextContent(String textContent) throws DOMException {
-//
-//                    }
-//                });
-            }
-
-
-        });
+                break;
+            default:
+                break;
+        }
     }
 }

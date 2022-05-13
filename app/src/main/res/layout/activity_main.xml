@@ -2,35 +2,61 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textSize="34sp"
-        android:hint="Введите имя"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Введите имя"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
-
-    <Button
-        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="144dp"
-        android:text="@string/butt1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginTop="40dp"
+        android:gravity="center_horizontal"
+        android:text="Введите ваше имя:"
+        app:layout_constraintBottom_toTopOf="@+id/name"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="33dp" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="167dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="13dp"
+        tools:layout_editor_absoluteY="119dp" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:gravity="center_horizontal"
+        android:text="Введите вашу вамилию:"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="15dp" />
+
+    <EditText
+        android:id="@+id/lastname"
+        android:layout_width="169dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/textView1"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="13dp" />
+
+    <Button
+        android:id="@+id/btnActTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:gravity="center_horizontal"
+        android:onClick="goNewView"
+        android:text="Go to Activity"
+        app:layout_constraintTop_toBottomOf="@+id/lastname"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="21dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
